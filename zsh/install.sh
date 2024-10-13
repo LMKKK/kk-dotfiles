@@ -13,6 +13,8 @@ if [ -d ~/.oh-my-zsh ]; then
 fi
 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-cp ./.zshrc ~/.zshrc
+FILE_PATH=$(readlink -f "$0")
+CURR_DIR=$(dirname $FILE_PATH)
+cp $CURR_DIR/.zshrc ~/.zshrc
 
 echo "zsh && oh-my-zsh install successfully, please reboot"
